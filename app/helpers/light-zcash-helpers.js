@@ -30,7 +30,6 @@ function listZaddrsWithNewZ(setZaddrs) {
             return
         }
         exec(`${commandStartString}zecwallet-cli balance`, (err, stdout, stderr) => {
-            console.log("hi", JSON.parse(stdout)["z_addresses"])
             if (err) {
                 console.log(err, stderrr)
                 return
@@ -60,7 +59,6 @@ function importViewKey(viewKey, success, setSuccess, birthday=1060000) {
 
 function listZaddrs(setZaddrs) {
     exec(`${commandStartString}zecwallet-cli balance`, (err, stdout, stderr) => {
-        console.log("hi", JSON.parse(stdout)["z_addresses"])
         if (err) {
             console.log(err, stderrr)
             return
@@ -79,7 +77,6 @@ function listTransactions(setTransactions) {
             return
         }
         let transactions = JSON.parse(stdout)
-        console.log(transactions)
         setTransactions(transactions)
         return transactions
     })
@@ -94,7 +91,6 @@ function listReceivedByAddress(zaddr, setPosts) {
         }
         let transactions = JSON.parse(stdout)
         transactions = transactions.filter(item => item.address === zaddr).sort((a,b) => b.datetime - a.datetime)
-        console.log(transactions)
         setPosts(transactions)
         return transactions
     })
@@ -115,7 +111,6 @@ function getViewKey(zaddr, setExportedKey) {
 }
 
 function send(zaddr, amount, memo, setSending) {
-    console.log(`${commandStartString}zecwallet-cli send ${zaddr} ${amount} ${JSON.stringify(memo)}`)
     exec(`${commandStartString}zecwallet-cli send ${zaddr} ${amount} ${JSON.stringify(memo)}`, (err, stdout, stderr) => {
         if (err) {
             console.log(stderr)
@@ -125,6 +120,9 @@ function send(zaddr, amount, memo, setSending) {
         if (stdout.includes("txid")) {
             setSending(false)
 
+        } else if (stdout.includes("Error: SendResponse")) {
+            setSending(false)
+            // set some kind of error message, encourage rescan
         }
 
     })
