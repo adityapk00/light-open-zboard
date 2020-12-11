@@ -64,7 +64,7 @@ export default function ThreadList(props: Props) {
             <button onClick={importViewKey}>Begin View Key Import</button>
                 </div>
             </form>
-            {showmessage ? <p>Vk import has begun. This will take a few minutes or even hours to sync.</p> : null}
+            {showmessage ? <p>Vk import has begun. When it's done, you can refresh this page and you'll see the new thread/address.</p> : null}
             </>
             
         
