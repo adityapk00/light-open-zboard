@@ -45,7 +45,7 @@ export default function ThreadList(props: Props) {
         <div className="thread-list">
             <h1>All Threads</h1>
             <button onClick={newThread}>Create New Zaddr/Thread</button>
-            <button onClick={_ => setImporting(!importing)}>{!importing? "Import View Key" : "Close"}</button>
+            <button onClick={_ => setImporting(!importing)}>{!importing? "Import View Key" : "Close Import Form"}</button>
 
             {importing ? 
             <>

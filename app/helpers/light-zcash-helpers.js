@@ -43,7 +43,7 @@ function listZaddrsWithNewZ(setZaddrs) {
 }
 
 function importViewKey(viewKey, success, setSuccess, birthday=1060000) {
-    let viewKeyCommand = `${commandStartString}zecwallet-cli import ${viewKey} ${birthday}`
+    let viewKeyCommand = `${commandStartString}zecwallet-cli import "${viewKey.trim()}" ${birthday}`
     console.log(viewKeyCommand)
     exec(viewKeyCommand, (err, stdout, stderr) => {
         

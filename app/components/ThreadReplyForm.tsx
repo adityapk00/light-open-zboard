@@ -20,6 +20,7 @@ export default function Thread(props: Props) {
     const [post, setPost] = useState(INITIAL_POST)
     const handleChange = e => setPost({...post, [e.target.name]: e.target.value})
     const [sending, setSending] = useState(false)
+    const [failed, setFailed] = useState(false)
 
 
     useEffect(() => {
@@ -51,6 +52,7 @@ export default function Thread(props: Props) {
                 value={post.amount}
                 onChange={handleChange} />
                 <button onClick={sendZec}>{sending ? "Sending Transaction..." : "Post"}</button>
+                {failed ? <p>Sending failed. Make sure you have confirmed balance. If you do, maybe do a rescan.</p> : null}
             </form>
             
         </div>
