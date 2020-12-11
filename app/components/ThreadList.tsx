@@ -25,7 +25,7 @@ export default function ThreadList(props: Props) {
         ZcashLight.listTransactions(setTransactions)
     }
     const newThread = _ => {
-        ZcashLight.listZaddrsWithNewZ(setThreads)
+        ZcashLight.listZaddrsWithNewZ(props.setThreads)
     }
 
     const handleChange = e => setImportedKey({...importedKey, [e.target.name] : e.target.value})
@@ -44,6 +44,7 @@ export default function ThreadList(props: Props) {
     return (
         <div className="thread-list">
             <h1>All Threads</h1>
+            <button onClick={newThread}>Create New Zaddr/Thread</button>
             <button onClick={_ => setImporting(!importing)}>{!importing? "Import View Key" : "Close"}</button>
 
             {importing ? 
