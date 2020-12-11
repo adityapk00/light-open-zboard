@@ -28,7 +28,8 @@ export default function Thread(props: Props) {
             ? posts.map(post => 
                 post.memo ? 
                 <div key={post.memo + post.txid} className={styles.post}>
-                    {post.memo}
+                    <p>{post.memo}</p>
+                    <p className={styles.amount}>{post.amount}</p>
                 </div>
                 : null )
             : <h1>Loading...</h1> }

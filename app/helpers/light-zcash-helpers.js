@@ -9,14 +9,17 @@ module.exports = {
     getViewKey
 }
 
-function importViewKey(viewKey, setSuccess, birthday=1060000) {
-    exec(`import ${viewKey} ${birthday}`, (err, stdout, stderr) => {
+function importViewKey(viewKey, success, setSuccess, birthday=1060000) {
+    let viewKeyCommand = `zecwallet-cli import ${viewKey} ${birthday}`
+    console.log(viewKeyCommand)
+    exec(viewKeyCommand, (err, stdout, stderr) => {
         
         if (err) {
-            console.log(err, stderrr)
+            console.log(err, stderr)
             return
         }
         console.log(stdout)
+        setSuccess(success + 1)
         
     })
 }

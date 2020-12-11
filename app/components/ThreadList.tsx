@@ -15,9 +15,10 @@ export default function ThreadList(props: Props) {
     const [exportedKey, setExportedKey] = useState({zaddr: "", viewKey: ""})
     const [importing, setImporting] = useState(false)
     const [viewKey, setViewKey] = useState("")
+    const [showMessage, setShowMessage] = useState(false)
     const [importedKey, setImportedKey] = useState({
         viewKey: "",
-        birthday: 0
+        birthday: null
     })
     const [success, setSuccess] = useState(0)
 
@@ -27,9 +28,10 @@ export default function ThreadList(props: Props) {
 
     const handleChange = e => setImportedKey({...importedKey, [e.target.name] : e.target.value})
 
-    const importViewKey = _ => {
-        ZcashLight.importViewKey(viewKey, success, birthday)
-
+    const importViewKey = e => {
+        e.preventDefault()
+        ZcashLight.importViewKey(importedKey.viewKey, success, setSuccess, importedKey.birthday)
+        setShowMessage(true)
     }
 
     useEffect(() => {
@@ -62,6 +64,7 @@ export default function ThreadList(props: Props) {
             <button onClick={importViewKey}>Begin View Key Import</button>
                 </div>
             </form>
+            {showmessage ? <p>Vk import has begun. This will take a few minutes or even hours to sync.</p> : null}
             </>
             
         
@@ -73,7 +76,7 @@ export default function ThreadList(props: Props) {
                 <>
                 <Link to={`/${thread}`}>
                     <div key={thread} className="thread">
-                        <h3>{thread}</h3>
+                        <h3 className={styles.threadLink}>{thread} ></h3>
                         {transactions.length ? <h4>{transactions.filter(transaction => transaction.address === thread && transaction.memo).length} Posts</h4> : null}
                         
                     </div>

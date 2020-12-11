@@ -46,3 +46,13 @@ textarea {
   width: 500px;
   height: 30px;
 }
+
+.threadLink {
+  word-break: break-all;
+  background: white;
+  color: black;
+}
+.amount {
+  text-align: right;
+  width: 95%;
+}
