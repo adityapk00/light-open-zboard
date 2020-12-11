@@ -10,7 +10,6 @@ type Props = {
   };
 
 export default function ThreadList(props: Props) {
-    console.log(props.threads)
     const [transactions, setTransactions] = useState([])
     const [exportedKey, setExportedKey] = useState({zaddr: "", viewKey: ""})
     const [importing, setImporting] = useState(false)
@@ -18,12 +17,15 @@ export default function ThreadList(props: Props) {
     const [showMessage, setShowMessage] = useState(false)
     const [importedKey, setImportedKey] = useState({
         viewKey: "",
-        birthday: null
+        birthday: ""
     })
     const [success, setSuccess] = useState(0)
 
     const fetchTransactions = _ => {
         ZcashLight.listTransactions(setTransactions)
+    }
+    const newThread = _ => {
+        ZcashLight.listZaddrsWithNewZ(setThreads)
     }
 
     const handleChange = e => setImportedKey({...importedKey, [e.target.name] : e.target.value})
@@ -55,7 +57,7 @@ export default function ThreadList(props: Props) {
                         onChange={handleChange} />
                 </div>
                 <div className="form-pair">
-                    <label>Birthday (optional)</label><br/>
+                    <label>Wallet Birthday (optional)</label><br/>
                     <input
                         name="birthday"
                         value={importedKey.birthday}
@@ -64,7 +66,7 @@ export default function ThreadList(props: Props) {
             <button onClick={importViewKey}>Begin View Key Import</button>
                 </div>
             </form>
-            {showmessage ? <p>Vk import has begun. When it's done, you can refresh this page and you'll see the new thread/address.</p> : null}
+            {showMessage ? <p>Vk import has begun. When it's done, you can refresh this page and you'll see the new thread/address.</p> : null}
             </>
             
         
@@ -73,7 +75,7 @@ export default function ThreadList(props: Props) {
             {!props.threads.length 
             ? <h1>Loading ...</h1>
             : props.threads.map(thread => 
-                <>
+                <div className={styles.thread}>
                 <Link to={`/${thread}`}>
                     <div key={thread} className="thread">
                         <h3 className={styles.threadLink}>{thread} ></h3>
@@ -85,7 +87,7 @@ export default function ThreadList(props: Props) {
                             ? <p className={styles.viewkey}>{exportedKey.viewKey}</p>
                             :  <button onClick={() => {setExportedKey({zaddr: thread, viewKey: ""}); ZcashLight.getViewKey(thread, setExportedKey)}}>{thread === exportedKey.zaddr && !exportedKey.viewKey ? "Loading view key..." : "Export View Key"}</button>}
                
-                </>
+                </div>
             )}
         </div>
     )

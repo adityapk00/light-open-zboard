@@ -16,18 +16,18 @@ export default function Home() {
   const [sum, setSum] = useState(0)
 
   useEffect(() => {
+    setInterval(ZcashLight.sync(), 60000)
     ZcashLight.listZaddrs(setThreads)
   },[])
 
   useEffect(() => {
-    console.log(threads)
   }, [threads])
 
   return (
     
     <div className={styles.container} data-tid="container">
       
-      <Route exact path="/" render={ _ => <ThreadList threads={threads}  /> } />
+      <Route exact path="/" render={ _ => <ThreadList threads={threads} setThreads={setThreads} /> } />
       <Route path="/:id" render={ props => <Thread {...props} threads={threads}  /> } />
     
     </div>

@@ -44,13 +44,13 @@ export default function Thread(props: Props) {
                 <textarea
                 name="memo"
                 value={post.memo}
-                onChange={handleChange} />.
+                onChange={handleChange} />
                 <label>Zatoshis to send</label>
                 <input
                 name="amount"
                 value={post.amount}
                 onChange={handleChange} />
-                <button onClick={sendZec}>Post</button>
+                <button onClick={sendZec}>{sending ? "Sending Transaction..." : "Post"}</button>
             </form>
             
         </div>

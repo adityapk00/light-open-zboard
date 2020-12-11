@@ -43,16 +43,30 @@
 }
 
 textarea {
-  width: 500px;
+  width: 400px;
   height: 30px;
 }
+button, input, textarea {
+  margin: 0 1%;
+}
+
 
 .threadLink {
   word-break: break-all;
   background: white;
   color: black;
+  margin: 1% 0%;
 }
 .amount {
   text-align: right;
   width: 95%;
+  margin: 0%;
+}
+
+h4 {
+  margin: 1% 0;
+}
+
+.thread {
+  background: grey;
 }
