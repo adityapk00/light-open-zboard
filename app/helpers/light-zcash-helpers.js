@@ -104,7 +104,7 @@ function getViewKey(zaddr, setExportedKey) {
         let keys = JSON.parse(stdout)[0]
         let viewKey = keys.viewing_key
         setExportedKey({zaddr, viewKey })
-        return transactions
+        return
     })
 
 
