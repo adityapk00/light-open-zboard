@@ -32,7 +32,7 @@ export default function Thread(props: Props) {
         <div className="thread">
             <div style={{display:'flex', width: "95%", justifyContent: "space-between"}}>
                 <Link to="/"><h1 className={styles.homeLink}>{"<"} Back</h1></Link>
-                <label style={{textAlign: 'center'}}>Filter By Value
+                <label style={{textAlign: 'center'}}>Filter By Minimum Amount
                 <div style={{margin: '1% auto', width: "330px", display: 'flex', alignItems: 'center'}}>
                     <label style={{margin: '3px'}}>0 ZEC</label>
                     <input style={{width: "200px" }} type="range" min="1" max="10000000" value={threshold} onChange={handleChange} />
@@ -48,7 +48,7 @@ export default function Thread(props: Props) {
                 post.memo && post.amount >= threshold ? 
                 <div style={technicolor ? {color: `#${getColorFromAmount(post.amount)}`, background: `${invertColor(getColorFromAmount(post.amount))}` } : {}} key={post.memo + post.txid} className={styles.post}>
                     <p>{post.memo.split("\\n").join("\n")}</p>
-                    <p className={styles.amount}>{post.amount}</p>
+                    <p className={styles.amount}>{post.amount} Zats</p>
                 </div>
                 : null )
             : <h1>Loading...</h1> }

@@ -76,7 +76,7 @@ export default function ThreadList(props: Props) {
             {!props.threads.length 
             ? <h3>Loading . . . </h3>
             : props.threads.map((thread, index) => 
-                <div className={styles.thread}>
+                <div key={thread} className={styles.thread}>
                 {index > 0 && <hr />}
                 <Link to={`/${thread}`}>
                     <div key={thread} className="thread">
