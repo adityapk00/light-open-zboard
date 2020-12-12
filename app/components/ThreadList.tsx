@@ -46,7 +46,7 @@ export default function ThreadList(props: Props) {
             <h1>All Threads</h1>
             <button onClick={newThread}>Create New Zaddr/Thread</button>
             <button onClick={_ => setImporting(!importing)}>{!importing? "Import View Key" : "Close Import Form"}</button>
-
+            <button onClick={_ => ZcashLight.rescan()}>Rescan Wallet</button>
             {importing ? 
             <>
             <form className={styles.importForm} onSubmit={importViewKey}>
@@ -75,8 +75,9 @@ export default function ThreadList(props: Props) {
 
             {!props.threads.length 
             ? <h1>Loading ...</h1>
-            : props.threads.map(thread => 
+            : props.threads.map((thread, index) => 
                 <div className={styles.thread}>
+                {index > 0 && <hr />}
                 <Link to={`/${thread}`}>
                     <div key={thread} className="thread">
                         <h3 className={styles.threadLink}>{thread} ></h3>

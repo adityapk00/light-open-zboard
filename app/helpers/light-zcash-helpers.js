@@ -14,7 +14,8 @@ module.exports = {
     importViewKey,
     getViewKey,
     listZaddrsWithNewZ,
-    sync
+    sync,
+    rescan
 }
 
 function sync() {
@@ -24,6 +25,21 @@ function sync() {
             console.log(err, stderr)
             return
         }
+        return
+        
+    })
+}
+
+function rescan() {
+    const confirmation = confirm("Are you sure you want to rescan? This may take a while, but is often a fix if you think a transaction might be missing.")
+    if (!confirmation) return
+    exec(commandStartString + `zecwallet-cli${extension} rescan`, (err, stdout, stderr) => {
+        
+        if (err) {
+            console.log(err, stderr)
+            return
+        }
+        
         return
         
     })

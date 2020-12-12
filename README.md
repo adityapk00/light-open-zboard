@@ -21,4 +21,5 @@ You'll find the built app in `/release`
 TO RUN the built app, you will need to move/copy the appropriate zecwallet-cli for your system into the same directory as the built application. 
 ## TODOS
 - [ ] Rescan button
+- [ ] Add a way to label/name addresses
 - [x] Render error message on failed send

@@ -21,9 +21,9 @@ export default function Thread(props: Props) {
 
     return (
         <div className="thread">
-            <Link to="/"><h1 className={styles.homeLink}>Back</h1></Link>
+            <Link to="/"><h1 className={styles.homeLink}>{"<"} Back</h1></Link>
             <ThreadReplyForm posts={posts} setPosts={setPosts} thread={props.match.params.id} />
-            <p>{props.match.params.id}</p>
+            <p className={styles.viewkey}>{props.match.params.id}</p>
             {posts
             ? posts.map(post => 
                 post.memo ? 
