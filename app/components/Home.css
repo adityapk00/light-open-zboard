@@ -72,8 +72,13 @@ button, input, textarea {
 .threadLink {
   word-break: break-all;
   background: white;
-  color: black;
+  color: blue;
+  text-decoration: underline;
   margin: 1% 0%;
+  padding: 1%;
+}
+.threadLink:active {
+  color: red;
 }
 .amount {
   text-align: right;
