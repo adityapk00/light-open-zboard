@@ -2,7 +2,7 @@ const path = require("path")
 const {exec} = require("child_process")
 const commandStartString = process.env.NODE_ENV === "development" 
         ? path.join(__dirname, '../resources/')
-        : path.join(process.resourcesPath, 'resources/')
+        : path.join(process.resourcesPath, 'resources').split("/").join("\\") + "\\"
 
 const extension = ["linux", "darwin"].includes(process.platform) ? "" : ".exe"
 
@@ -20,7 +20,11 @@ module.exports = {
 }
 
 function prodResourcesPath() {
-    return path.join(process.resourcesPath, 'resources') 
+    let pathToZecwallet = path.join(process.resourcesPath, 'resources') + "/"
+    if (process.platform.includes("win")) {
+        pathToZecwallet = pathToZecwallet.split("/").join("\\")
+    }
+    return pathToZecwallet
 }
 
 function sync() {

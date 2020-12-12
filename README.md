@@ -21,4 +21,6 @@ You'll find the built app in `/release/your-os-unpacked/LightWalletBoard.exe`
 ## TODOS
 - [x] Rescan button
 - [ ] address label/names
+- [ ] refresh button
 - [x] Render error message on failed send
+- [ ] sync/resync progress indicator

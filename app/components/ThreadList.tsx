@@ -72,8 +72,9 @@ export default function ThreadList(props: Props) {
         
             : null}
 
+
             {!props.threads.length 
-            ? <h1>Loading ...</h1>
+            ? <h3>{ZcashLight.prodResourcesPath()}</h3>
             : props.threads.map((thread, index) => 
                 <div className={styles.thread}>
                 {index > 0 && <hr />}
