@@ -1,6 +1,12 @@
+const path = require("path")
 const {exec} = require("child_process")
-const commandStartString = ["linux", "darwin"].includes(process.platform) ? "./" + process.resourcesPath : process.resourcesPath
+const commandStartString = ["linux", "darwin"].includes(process.platform) 
+? "./" 
+: process.env.NODE_ENV === "development" 
+    ? path.join(__dirname, '../resources/')
+    : path.join(process.resourcesPath, 'resources')
 const extension = ["linux", "darwin"].includes(process.platform) ? "./" : ".exe"
+
 module.exports = {
     listZaddrs,
     listTransactions,
