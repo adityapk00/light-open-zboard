@@ -57,7 +57,7 @@ export default function ThreadList(props: Props) {
                         value={importedKey.viewKey}
                         onChange={handleChange} />
                 </div>
-                <div className="form-pair">
+                <div className={styles.Birthday}>
                     <label>Wallet Birthday (optional, doesn't seem to work in zecwallet-cli right now. Expect a long import/rescan.)</label><br/>
                     <input
                         name="birthday"

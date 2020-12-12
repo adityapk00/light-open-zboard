@@ -56,8 +56,8 @@ export default function Thread(props: Props) {
                 onChange={handleChange} />
                 </div>
                <div class={styles.sendButton}>
-                   <button onClick={sendZec}>{sending ? "Sending Transaction..." : "Post"}</button>
                    <p className={styles.amountInZec}>{(post.amount / 100000000).toFixed(8)} ZEC</p>
+                   <button onClick={sendZec}>{sending ? "Sending Transaction..." : "Post"}</button>
                </div>
             </form>
             {failed ? <p>Sending failed. Make sure you have confirmed balance. If you do, maybe do a rescan.</p> : null}

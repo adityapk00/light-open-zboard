@@ -35,12 +35,11 @@
 .importForm {
   display: flex;
   width: 100%;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
 }
 
 .vkInput {
-  width: 50%;
+  width: 60%;
 }
 
 textarea {
@@ -80,6 +79,11 @@ button, input, textarea {
 .threadLink:active {
   color: red;
 }
+
+.birthday {
+    margin-left: 20px;
+    width: 33%;
+}
 .amount {
   text-align: right;
   width: 95%;
@@ -117,4 +121,6 @@ h4 {
 
 .amountInZec {
   font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 5px;
 }
