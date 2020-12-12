@@ -13,7 +13,6 @@ export default function ThreadList(props: Props) {
     const [transactions, setTransactions] = useState([])
     const [exportedKey, setExportedKey] = useState({zaddr: "", viewKey: ""})
     const [importing, setImporting] = useState(false)
-    const [viewKey, setViewKey] = useState("")
     const [showMessage, setShowMessage] = useState(false)
     const [importedKey, setImportedKey] = useState({
         viewKey: "",
@@ -44,7 +43,6 @@ export default function ThreadList(props: Props) {
     return (
         <div className="thread-list">
             <h1>All Threads</h1>
-            <p>{ZcashLight.prodResourcesPath()}</p>
             <button onClick={newThread}>Create New Zaddr/Thread</button>
             <button onClick={_ => setImporting(!importing)}>{!importing? "Import View Key" : "Close Import Form"}</button>
             <button onClick={_ => ZcashLight.rescan()}>Rescan Wallet</button>
