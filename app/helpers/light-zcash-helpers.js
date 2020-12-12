@@ -2,7 +2,7 @@ const path = require("path")
 const {exec} = require("child_process")
 const commandStartString = process.env.NODE_ENV === "development" 
         ? path.join(__dirname, '../resources/')
-        : path.join(process.resourcesPath, 'resources') + "/"
+        : path.join(process.resourcesPath, 'resources/')
 
 const extension = ["linux", "darwin"].includes(process.platform) ? "" : ".exe"
 
@@ -15,7 +15,12 @@ module.exports = {
     getViewKey,
     listZaddrsWithNewZ,
     sync,
-    rescan
+    rescan,
+    prodResourcesPath
+}
+
+function prodResourcesPath() {
+    return path.join(process.resourcesPath, 'resources') 
 }
 
 function sync() {

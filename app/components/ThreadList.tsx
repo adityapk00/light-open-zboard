@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react"
 import hexToAscii from "../helpers/hexToAscii"
 import {Link} from "react-router-dom"
 const vkRegex = /[a-z0-9]{285}/i
-import ZcashLight from "../helpers/light-zcash-helpers"
+import ZcashLight, { prodResourcesPath } from "../helpers/light-zcash-helpers"
 import styles from './Home.css';
 
 type Props = {
@@ -44,6 +44,7 @@ export default function ThreadList(props: Props) {
     return (
         <div className="thread-list">
             <h1>All Threads</h1>
+            <p>{ZcashLight.prodResourcesPath()}</p>
             <button onClick={newThread}>Create New Zaddr/Thread</button>
             <button onClick={_ => setImporting(!importing)}>{!importing? "Import View Key" : "Close Import Form"}</button>
             <button onClick={_ => ZcashLight.rescan()}>Rescan Wallet</button>
@@ -80,7 +81,6 @@ export default function ThreadList(props: Props) {
                 {index > 0 && <hr />}
                 <Link to={`/${thread}`}>
                     <div key={thread} className="thread">
-                        <h3 className={styles.threadLink}>{thread} ></h3>
                         {transactions.length ? <h4>{transactions.filter(transaction => transaction.address === thread && transaction.memo).length} Posts</h4> : null}
                         
                     </div>
