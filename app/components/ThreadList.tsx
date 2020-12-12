@@ -58,7 +58,7 @@ export default function ThreadList(props: Props) {
                         onChange={handleChange} />
                 </div>
                 <div className="form-pair">
-                    <label>Wallet Birthday (optional)</label><br/>
+                    <label>Wallet Birthday (optional, doesn't seem to work in zecwallet-cli right now. Expect a long import/rescan.)</label><br/>
                     <input
                         name="birthday"
                         value={importedKey.birthday}
