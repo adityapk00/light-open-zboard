@@ -39,7 +39,7 @@ export default function Thread(props: Props) {
                     <label style={{margin: '3px'}}>1 ZEC</label>
                 </div>
                 </label>
-                <button onClick={_ => setTechnicolor(!technicolor)} style={{height: "35px"}}>Technicolor Payments</button>
+                <button onClick={_ => setTechnicolor(!technicolor)} style={{width: "150px", height: "35px"}}>{technicolor ? "Business Mode" : "Technicolor Payments"}</button>
             </div>
             <ThreadReplyForm posts={posts} setPosts={setPosts} thread={props.match.params.id} />
             <p className={styles.viewkey}>{props.match.params.id}</p>
