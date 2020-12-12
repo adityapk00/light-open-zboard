@@ -16,10 +16,9 @@ To run in development mode:
 To build standalone app:
 - `yarn run package`
 
-You'll find the built app in `/release`
+You'll find the built app in `/release/your-os-unpacked/LightWalletBoard.exe`
 
-TO RUN the built app, you will need to move/copy the appropriate zecwallet-cli for your system into the same directory as the built application. 
 ## TODOS
-- [ ] Rescan button
-- [ ] Add a way to label/name addresses
+- [x] Rescan button
+- [ ] address label/names
 - [x] Render error message on failed send
