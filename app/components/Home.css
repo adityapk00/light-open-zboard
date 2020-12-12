@@ -44,7 +44,7 @@
 
 textarea {
   width: 400px;
-  height: 30px;
+  height: 150px;
 }
 button, input, textarea {
   margin: 0 1%;
@@ -69,4 +69,18 @@ h4 {
 
 .thread {
   background: grey;
+}
+
+.postForm {
+  display: flex;
+}
+.postForm input {
+  height: 30px;
+  font-size: 16px;
+  text-align: right;
+  width: 80px;
+}
+
+.postForm button {
+  height: 30px;
 }

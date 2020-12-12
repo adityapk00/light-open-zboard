@@ -28,12 +28,12 @@ export default function Thread(props: Props) {
             ? posts.map(post => 
                 post.memo ? 
                 <div key={post.memo + post.txid} className={styles.post}>
-                    <p>{post.memo}</p>
+                    <p>{post.memo.split("\\n").join("\n")}</p>
                     <p className={styles.amount}>{post.amount}</p>
                 </div>
                 : null )
             : <h1>Loading...</h1> }
-            {posts && !posts.length ? <h1>No posts found</h1> : null}
+            {posts && !posts.length ? <h1>No posts found for {props.match.params.id}</h1> : null}
         </div>
     )
 

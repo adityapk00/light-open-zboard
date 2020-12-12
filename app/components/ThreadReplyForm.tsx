@@ -40,13 +40,13 @@ export default function Thread(props: Props) {
 
     return (
         <div className="form-container">
-            <form>
-                <label>Post content</label>
+            <form className={styles.postForm}>
+                <label>Post content:</label>
                 <textarea
                 name="memo"
                 value={post.memo}
                 onChange={handleChange} />
-                <label>Zatoshis to send</label>
+                <label>Zatoshis to send:</label>
                 <input
                 name="amount"
                 value={post.amount}
