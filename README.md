@@ -2,7 +2,7 @@
 
 This is an app I whipped up as a fun PoC and to get some Electron chops going. Enjoy.
 
-I haven't tested this on Mac. It's pretty simple, it uses [Adityapk's zecwallet-cli](https://github.com/adityapk00/zecwallet-light-cli) via child processes. This isn't a wallet, it's p much just a UI for the CLI. The plus side of that is that it's hella easy for you to audit. swap in your own builds of zecwallet-cli and it won't be too hard to tell what the app is up to.
+I haven't tested this on Mac. It's pretty simple, it uses [Adityapk's zecwallet-cli](https://github.com/adityapk00/zecwallet-light-cli) via child processes. This isn't a wallet, it's p much just a UI for the CLI. The plus side of that is that it's hella easy for you to audit. swap in your own builds of zecwallet-cli 4 safety and it won't be too hard to tell what the app is up to.
 
 So far it's the product of one night of work, maybe I'll do something else. Def needs a face lift. Legalize it and google "Uyghurs" and get off carbs
 
