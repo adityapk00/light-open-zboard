@@ -125,3 +125,15 @@ h4 {
   margin-top: 0;
   margin-bottom: 5px;
 }
+
+hr {
+  margin-top: 0;
+}
+
+.exportButton {
+  margin-bottom: 0;
+}
+
+li {
+  width: 50px;
+}

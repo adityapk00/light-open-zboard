@@ -23,6 +23,7 @@ You'll find the built app in `/release/`
 ## TODOS
 - [x] Rescan button
 - [x] Render error message on failed send
+- [x] Filter posts by amount (slider)
 - [ ] address label/names
 - [ ] refresh button
 - [ ] sync/resync progress indicator (logfile in root can prolly be used for this?)

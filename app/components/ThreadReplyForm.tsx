@@ -55,7 +55,7 @@ export default function Thread(props: Props) {
                 value={post.amount}
                 onChange={handleChange} />
                 </div>
-               <div class={styles.sendButton}>
+               <div className={styles.sendButton}>
                    <p className={styles.amountInZec}>{(post.amount / 100000000).toFixed(8)} ZEC</p>
                    <button onClick={sendZec}>{sending ? "Sending Transaction..." : "Post"}</button>
                </div>

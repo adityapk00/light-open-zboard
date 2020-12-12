@@ -277,6 +277,7 @@
     "@hot-loader/react-dom": "^16.13.0",
     "@reduxjs/toolkit": "^1.4.0",
     "axios": "^0.21.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "connected-react-router": "^6.6.1",
     "cross-env": "^7.0.3",
     "electron-debug": "^3.1.0",

@@ -87,7 +87,7 @@ export default function ThreadList(props: Props) {
                 </Link>
                 {exportedKey.zaddr === thread && exportedKey.viewKey
                             ? <p className={styles.viewkey}>{exportedKey.viewKey}</p>
-                            :  <button onClick={() => {setExportedKey({zaddr: thread, viewKey: ""}); ZcashLight.getViewKey(thread, setExportedKey)}}>{thread === exportedKey.zaddr && !exportedKey.viewKey ? "Loading view key..." : "Export View Key"}</button>}
+                            :  <button className={styles.exportButton} onClick={() => {setExportedKey({zaddr: thread, viewKey: ""}); ZcashLight.getViewKey(thread, setExportedKey)}}>{thread === exportedKey.zaddr && !exportedKey.viewKey ? "Loading view key..." : "Export View Key"}</button>}
                
                 </div>
             )}
