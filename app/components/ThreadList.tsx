@@ -79,6 +79,7 @@ export default function ThreadList(props: Props) {
                 {index > 0 && <hr />}
                 <Link to={`/${thread}`}>
                     <div key={thread} className="thread">
+                        <h3 className={styles.threadLink}>{thread} ></h3>
                         {transactions.length ? <h4>{transactions.filter(transaction => transaction.address === thread && transaction.memo).length} Posts</h4> : null}
                         
                     </div>
