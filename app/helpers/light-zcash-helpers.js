@@ -25,6 +25,10 @@ function sync() {
             console.log(err, stderr)
             return
         }
+        if (stdout) {
+            console.log(stdout)
+            if (stdout.trim().split(" ")[1]) console.log(stdout.trim().split(" ")[1])
+        }
         return
         
     })
@@ -39,7 +43,7 @@ function rescan() {
             console.log(err, stderr)
             return
         }
-        
+        console.log(stdout)
         return
         
     })
