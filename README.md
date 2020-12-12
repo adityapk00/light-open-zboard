@@ -24,3 +24,7 @@ You'll find the built app in `/release/your-os-unpacked/LightWalletBoard.exe`
 - [ ] refresh button
 - [x] Render error message on failed send
 - [ ] sync/resync progress indicator
+
+## Acknowledgements
+
+Shouts to the haters.
