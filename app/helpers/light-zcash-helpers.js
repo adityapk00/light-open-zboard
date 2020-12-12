@@ -1,5 +1,6 @@
 const {exec} = require("child_process")
-const commandStartString = ["linux", "darwin"].includes(process.platform) ? "./" : ""
+const commandStartString = ["linux", "darwin"].includes(process.platform) ? "./" + process.resourcesPath : process.resourcesPath
+const extension = ["linux", "darwin"].includes(process.platform) ? "./" : ".exe"
 module.exports = {
     listZaddrs,
     listTransactions,
@@ -12,7 +13,7 @@ module.exports = {
 }
 
 function sync() {
-    exec(commandStartString + "zecwallet-cli sync", (err, stdout, stderr) => {
+    exec(commandStartString + `zecwallet-cli${extension} sync`, (err, stdout, stderr) => {
         
         if (err) {
             console.log(err, stderr)
@@ -24,12 +25,12 @@ function sync() {
 }
 
 function listZaddrsWithNewZ(setZaddrs) {
-    exec(`${commandStartString}zecwallet-cli new z`, (err, stdout, stderr) => {
+    exec(`${commandStartString}zecwallet-cli${extension} new z`, (err, stdout, stderr) => {
         if (err) {
             console.log(stderr)
             return
         }
-        exec(`${commandStartString}zecwallet-cli balance`, (err, stdout, stderr) => {
+        exec(`${commandStartString}zecwallet-cli${extension} balance`, (err, stdout, stderr) => {
             if (err) {
                 console.log(err, stderrr)
                 return
@@ -43,7 +44,7 @@ function listZaddrsWithNewZ(setZaddrs) {
 }
 
 function importViewKey(viewKey, success, setSuccess, birthday=1060000) {
-    let viewKeyCommand = `${commandStartString}zecwallet-cli import "${viewKey.trim()}" ${birthday}`
+    let viewKeyCommand = `${commandStartString}zecwallet-cli${extension} import "${viewKey.trim()}" ${birthday}`
     console.log(viewKeyCommand)
     exec(viewKeyCommand, (err, stdout, stderr) => {
         
@@ -58,7 +59,7 @@ function importViewKey(viewKey, success, setSuccess, birthday=1060000) {
 }
 
 function listZaddrs(setZaddrs) {
-    exec(`${commandStartString}zecwallet-cli balance`, (err, stdout, stderr) => {
+    exec(`${commandStartString}zecwallet-cli${extension} balance`, (err, stdout, stderr) => {
         if (err) {
             console.log(err, stderrr)
             return
@@ -71,7 +72,7 @@ function listZaddrs(setZaddrs) {
 }
 
 function listTransactions(setTransactions) {
-    exec(`${commandStartString}zecwallet-cli list`, (err, stdout, stderr) => {
+    exec(`${commandStartString}zecwallet-cli${extension} list`, (err, stdout, stderr) => {
         if (err) {
             console.log(stderrr)
             return
@@ -84,7 +85,7 @@ function listTransactions(setTransactions) {
 
 function listReceivedByAddress(zaddr, setPosts) {
     
-    exec(`${commandStartString}zecwallet-cli list`, (err, stdout, stderr) => {
+    exec(`${commandStartString}zecwallet-cli${extension} list`, (err, stdout, stderr) => {
         if (err) {
             console.log(stderrr)
             return
@@ -96,7 +97,7 @@ function listReceivedByAddress(zaddr, setPosts) {
     })
 }
 function getViewKey(zaddr, setExportedKey) {
-    exec(`${commandStartString}zecwallet-cli export ${zaddr}`, (err, stdout, stderr) => {
+    exec(`${commandStartString}zecwallet-cli${extension} export ${zaddr}`, (err, stdout, stderr) => {
         if (err) {
             console.log(stderrr)
             return
@@ -111,7 +112,7 @@ function getViewKey(zaddr, setExportedKey) {
 }
 
 function send(zaddr, amount, memo, setSending) {
-    exec(`${commandStartString}zecwallet-cli send ${zaddr} ${amount} ${JSON.stringify(memo)}`, (err, stdout, stderr) => {
+    exec(`${commandStartString}zecwallet-cli${extension} send ${zaddr} ${amount} ${JSON.stringify(memo)}`, (err, stdout, stderr) => {
         if (err) {
             console.log(stderr)
             return
