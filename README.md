@@ -1,8 +1,10 @@
 # LIGHT zaddr Open Messaging App
 
-This is an app I whipped up as a fun PoC. Enjoy. It's not guaranteed to be perfect.
+This is an app I whipped up as a fun PoC and to get some Electron chops going. Enjoy.
 
-I haven't tested this on Linux or Mac. Probably make a new light-wallet.dat for this, for a zillion reasons.
+I haven't tested this on Mac. It's pretty simple, it uses [Adityapk's zecwallet-cli](https://github.com/adityapk00/zecwallet-light-cli) via child processes. This isn't a wallet, it's p much just a UI for the CLI. The plus side of that is that it's hella easy for you to audit. swap in your own builds of zecwallet-cli and it won't be too hard to tell what the app is up to.
+
+So far it's the product of one night of work, maybe I'll do something else. Def needs a face lift. Legalize it and google "Uyghurs" and get off carbs
 
 ## Running/Building
 
@@ -16,7 +18,7 @@ To run in development mode:
 To build standalone app:
 - `yarn run package`
 
-You'll find the built app in `/release/your-os-unpacked/LightWalletBoard.exe`
+You'll find the built app in `/release/`
 
 ## TODOS
 - [x] Rescan button
@@ -24,3 +26,7 @@ You'll find the built app in `/release/your-os-unpacked/LightWalletBoard.exe`
 - [ ] refresh button
 - [x] Render error message on failed send
 - [ ] sync/resync progress indicator
+
+## Acknowledgements
+
+Shouts to the haters.
