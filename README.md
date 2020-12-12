@@ -22,10 +22,11 @@ You'll find the built app in `/release/`
 
 ## TODOS
 - [x] Rescan button
+- [x] Render error message on failed send
 - [ ] address label/names
 - [ ] refresh button
-- [x] Render error message on failed send
 - [ ] sync/resync progress indicator (logfile in root can prolly be used for this?)
+- [ ] Indicate progress specific to a view key import? (get versed in logs Mikey)
 - [ ] Detect and render html in memos
 - [ ] Detect and render markdown in memos
 - [ ] Detect binary files and allow their download
