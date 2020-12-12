@@ -27,6 +27,11 @@ function sync() {
         }
         if (stdout) {
             console.log(stdout)
+            if (stdout.includes("success")) {
+                return true
+            } else {
+                return false
+            }
             if (stdout.trim().split(" ")[1]) console.log(stdout.trim().split(" ")[1])
         }
         return

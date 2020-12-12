@@ -16,7 +16,7 @@ export default function Home() {
   const [sum, setSum] = useState(0)
 
   useEffect(() => {
-    setInterval(ZcashLight.sync(), 60000)
+    setInterval(ZcashLight.sync(), 120000)
     ZcashLight.listZaddrs(setThreads)
   },[])
 
