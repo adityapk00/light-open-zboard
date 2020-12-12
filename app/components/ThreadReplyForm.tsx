@@ -41,19 +41,26 @@ export default function Thread(props: Props) {
     return (
         <div className="form-container">
             <form className={styles.postForm}>
-                <label>Post content:</label>
-                <textarea
-                name="memo"
-                value={post.memo}
-                onChange={handleChange} />
+                <div className={styles.postInput}>
+                <label>Make a new post:</label>
+                    <textarea
+                    name="memo"
+                    value={post.memo}
+                    onChange={handleChange} />
+                </div>
+                <div className={styles.amountInput}>
                 <label>Zatoshis to send:</label>
                 <input
                 name="amount"
                 value={post.amount}
                 onChange={handleChange} />
-                <button onClick={sendZec}>{sending ? "Sending Transaction..." : "Post"}</button>
-                {failed ? <p>Sending failed. Make sure you have confirmed balance. If you do, maybe do a rescan.</p> : null}
+                </div>
+               <div class={styles.sendButton}>
+                   <button onClick={sendZec}>{sending ? "Sending Transaction..." : "Post"}</button>
+                   <p className={styles.amountInZec}>{(post.amount / 100000000).toFixed(8)} ZEC</p>
+               </div>
             </form>
+            {failed ? <p>Sending failed. Make sure you have confirmed balance. If you do, maybe do a rescan.</p> : null}
             
         </div>
     )

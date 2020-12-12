@@ -3,7 +3,7 @@
   top: 10px;
   left: 10px;
   text-align: left;
-  width: 900px;
+  width: 90vw;
 }
 
 .container h2 {
@@ -36,6 +36,7 @@
   display: flex;
   width: 100%;
   justify-content: space-around;
+  align-items: center;
 }
 
 .vkInput {
@@ -43,14 +44,31 @@
 }
 
 textarea {
-  width: 400px;
+  width: 100%;
   height: 150px;
+  
 }
 button, input, textarea {
-  margin: 0 1%;
+  margin: 1% 1%;
+  margin-left: 0;
 }
 
+.postInput {
+  width: 60%;
+}
 
+.amountInput {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sendButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .threadLink {
   word-break: break-all;
   background: white;
@@ -73,14 +91,25 @@ h4 {
 
 .postForm {
   display: flex;
+  justify-content: space-around;
 }
 .postForm input {
   height: 30px;
   font-size: 16px;
   text-align: right;
-  width: 80px;
+  width: 100px;
+  margin-left: 0;
 }
+
+.postForm label {
+  margin-bottom: 5px;
+}
+
 
 .postForm button {
   height: 30px;
+}
+
+.amountInZec {
+  font-size: 16px;
 }
