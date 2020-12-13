@@ -71,7 +71,7 @@ function listZaddrsWithNewZ(setZaddrs) {
         }
         exec(`${commandStartString}zecwallet-cli${extension} balance`, (err, stdout, stderr) => {
             if (err) {
-                console.log(err, stderrr)
+                console.log(err, stderr)
                 return
             }
     
@@ -100,7 +100,7 @@ function importViewKey(viewKey, success, setSuccess, birthday=1060000) {
 function listZaddrs(setZaddrs) {
     exec(`${commandStartString}zecwallet-cli${extension} balance`, (err, stdout, stderr) => {
         if (err) {
-            console.log(err, stderrr)
+            console.log(err, stderr)
             return
         }
 
@@ -113,7 +113,7 @@ function listZaddrs(setZaddrs) {
 function listTransactions(setTransactions) {
     exec(`${commandStartString}zecwallet-cli${extension} list`, (err, stdout, stderr) => {
         if (err) {
-            console.log(stderrr)
+            console.log(stderr)
             return
         }
         let transactions = JSON.parse(stdout)
@@ -126,7 +126,7 @@ function listReceivedByAddress(zaddr, setPosts) {
     
     exec(`${commandStartString}zecwallet-cli${extension} list`, (err, stdout, stderr) => {
         if (err) {
-            console.log(stderrr)
+            console.log(stderr)
             return
         }
         let transactions = JSON.parse(stdout)
@@ -138,7 +138,7 @@ function listReceivedByAddress(zaddr, setPosts) {
 function getViewKey(zaddr, setExportedKey) {
     exec(`${commandStartString}zecwallet-cli${extension} export ${zaddr}`, (err, stdout, stderr) => {
         if (err) {
-            console.log(stderrr)
+            console.log(stderr)
             return
         }
         let keys = JSON.parse(stdout)[0]

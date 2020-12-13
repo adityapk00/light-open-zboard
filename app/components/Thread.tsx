@@ -18,14 +18,19 @@ export default function Thread(props: Props) {
     const [posts, setPosts] = useState(null)
     const [technicolor, setTechnicolor] = useState(false)
     const [threshold, setThreshold] = useState(0)
+    const [pinned, setPinned] = useState(null)
 
     useEffect(() => {
         ZcashLight.listReceivedByAddress(props.match.params.id, setPosts)
     },[])
 
+    useEffect(() => {
+        if (posts) {
+            setPinned([...posts].sort((a,b) => b.amount - a.amount ).find(item => +item.datetime > ((Date.now() / 1000) - (60 * 60 * 24 * 14)) ) )
+        }
+    },[posts])
+
     const handleChange = e => setThreshold(e.target.value)
-    const formatzat = value => value + ' zat'
-    
 
 
     return (
@@ -43,6 +48,15 @@ export default function Thread(props: Props) {
             </div>
             <ThreadReplyForm posts={posts} setPosts={setPosts} thread={props.match.params.id} />
             <p className={styles.viewkey}>{props.match.params.id}</p>
+            {pinned && 
+            <>
+            <h3>Pinned Post</h3>
+            <div style={technicolor ? {color: `#${getColorFromAmount(pinned.amount)}`, background: `${invertColor(getColorFromAmount(pinned.amount))}` } : {}} key={pinned.memo + pinned.txid} className={styles.pinnedpost}>
+                    <p>{pinned.memo.split("\\n").join("\n")}</p>
+                    <p className={styles.amount}>{pinned.amount} Zats</p>
+            </div>
+            </>}
+            <h3>Thread</h3>
             {posts
             ? posts.map(post => 
                 post.memo && post.amount >= threshold ? 

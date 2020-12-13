@@ -24,6 +24,7 @@ You'll find the built app in `/release/`
 - [x] Rescan button
 - [x] Render error message on failed send
 - [x] Filter posts by amount (slider)
+- [x] Pinned Post (highest value in last 14 days)
 - [ ] address label/names
 - [ ] refresh button
 - [ ] sync/resync progress indicator (logfile in root can prolly be used for this?)

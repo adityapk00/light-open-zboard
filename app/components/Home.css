@@ -137,3 +137,13 @@ hr {
 li {
   width: 50px;
 }
+
+.pinnedpost {
+  background: pink;
+  width: 100%;
+  margin: 1%;
+  margin-bottom: 3%;
+  color: #333;
+  padding: 1%;
+  word-break: break-word;
+}
